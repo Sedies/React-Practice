@@ -1,20 +1,8 @@
-import React, { useState } from 'react';
-import Info from './Info';
+import React from 'react';
+import Info2 from './Hooks/useReducer/Info2';
 
 const App = () => {
-  const [visible, setVisible] = useState(false);
-  return (
-    <div>
-      <button
-        onClick={() => {
-          setVisible(!visible);
-        }}
-      >
-        {visible ? '숨기기' : '보이기'}
-      </button>
-      {visible && <Info />}
-    </div>
-  );
+  return <Info2 />;
 };
 
 export default App;
