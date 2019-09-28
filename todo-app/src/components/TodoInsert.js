@@ -14,7 +14,7 @@ const TodoInput = styled.form`
     line-height: 1.5;
     color: white;
     &::placeholder {
-      color: #dee206;
+      color: #dee2e6;
     }
     flex: 1;
   }
