@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import {
   MdCheckBoxOutlineBlank,
   MdCheckBox,
@@ -13,15 +13,6 @@ const TodoItem = styled.div`
   &:nth-child(even) {
     background: #f8f9fa;
   }
-  &.checked {
-    svg {
-      color: #22b8cf;
-    }
-    .Text {
-      color: #adb5bd;
-      text-decoration: line-through;
-    }
-  }
   & + & {
     border-top: 1px solid #dee2e6;
   }
@@ -34,11 +25,24 @@ const CheckBox = styled.div`
   svg {
     font-size: 1.5rem;
   }
+  ${props =>
+    props.checked &&
+    css`
+      svg {
+        color: #22b8cf;
+      }
+    `}
 `;
 
 const Text = styled.div`
   margin-left: 0.5rem;
   flex: 1;
+  ${props =>
+    props.checked &&
+    css`
+      color: #adb5bd;
+      text-decoration: line-through;
+    `}
 `;
 
 const Remove = styled.div`
@@ -52,12 +56,13 @@ const Remove = styled.div`
   }
 `;
 
-const TodoListItem = () => {
+const TodoListItem = ({ todo }) => {
+  const { text, checked } = todo;
   return (
-    <TodoItem>
-      <CheckBox>
-        <MdCheckBoxOutlineBlank />
-        <Text>할 일</Text>
+    <TodoItem checked={checked}>
+      <CheckBox checked={checked}>
+        {checked ? <MdCheckBox /> : <MdCheckBoxOutlineBlank />}
+        <Text checked={checked}>{text}</Text>
       </CheckBox>
       <Remove>
         <MdRemoveCircleOutline />
