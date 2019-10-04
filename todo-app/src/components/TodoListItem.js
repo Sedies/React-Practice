@@ -16,6 +16,19 @@ const TodoItem = styled.div`
   & + & {
     border-top: 1px solid #dee2e6;
   }
+  ${props =>
+    props.checked &&
+    css`
+      ${CheckBox} {
+        svg {
+          color: #22b8cf;
+        }
+      }
+      ${Text} {
+        color: #adb5bd;
+        text-decoration: line-through;
+      }
+    `}
 `;
 const CheckBox = styled.div`
   cursor: pointer;
@@ -25,24 +38,11 @@ const CheckBox = styled.div`
   svg {
     font-size: 1.5rem;
   }
-  ${props =>
-    props.checked &&
-    css`
-      svg {
-        color: #22b8cf;
-      }
-    `}
 `;
 
 const Text = styled.div`
   margin-left: 0.5rem;
   flex: 1;
-  ${props =>
-    props.checked &&
-    css`
-      color: #adb5bd;
-      text-decoration: line-through;
-    `}
 `;
 
 const Remove = styled.div`
@@ -60,9 +60,9 @@ const TodoListItem = ({ todo, onRemove, onToggle }) => {
   const { id, text, checked } = todo;
   return (
     <TodoItem checked={checked}>
-      <CheckBox checked={checked} onClick={() => onToggle(id)}>
+      <CheckBox onClick={() => onToggle(id)}>
         {checked ? <MdCheckBox /> : <MdCheckBoxOutlineBlank />}
-        <Text checked={checked}>{text}</Text>
+        <Text>{text}</Text>
       </CheckBox>
       <Remove onClick={() => onRemove(id)}>
         <MdRemoveCircleOutline />
