@@ -20,7 +20,7 @@ const Todolistitem = styled.div`
 
     svg {
       cursor: pointer;
-      color: gray;
+      color: #a2aaad;
       font-size: 1.25rem;
       &:hover {
         color: #4dd0e1;
@@ -40,7 +40,7 @@ const Todolistitem = styled.div`
           color: #4dd0e1;
         }
         p {
-          color: gray;
+          color: #a2aaad;
           text-decoration: line-through;
         }
       }
@@ -49,7 +49,7 @@ const Todolistitem = styled.div`
     display: flex;
     font-size: 1.25rem;
     align-items: center;
-    color: gray;
+    color: #a2aaad;
     cursor: pointer;
     &:hover {
       color: tomato;

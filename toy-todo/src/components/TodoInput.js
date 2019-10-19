@@ -14,13 +14,15 @@ const Form = styled.form`
 `;
 
 const Button = styled.button`
+  cursor: pointer;
   background: #fff;
   border: 0 none;
   font-size: 1.5rem;
   line-height: 1;
+  ${props => props.color && `color:${props.color}`};
 `;
 
-const TodoInput = ({ onInsert }) => {
+const TodoInput = ({ onInsert, colorCheck }) => {
   const [value, setValue] = useState('');
 
   const onChange = useCallback(e => {
@@ -43,7 +45,7 @@ const TodoInput = ({ onInsert }) => {
         value={value}
         onChange={onChange}
       />
-      <Button>
+      <Button color={colorCheck}>
         <MdAdd />
       </Button>
     </Form>

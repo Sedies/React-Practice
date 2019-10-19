@@ -1,5 +1,5 @@
 import React from 'react';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 const Template = styled.div`
   width: 500px;
@@ -9,9 +9,10 @@ const Template = styled.div`
   border-radius: 5px;
 `;
 
-const TodoTemplate = ({ children, colors }) => {
+const TodoTemplate = ({ children, colors, setColorCheck }) => {
   const getChecked = colors => {
     const chk = colors.filter(num => num.checked === true);
+    setColorCheck(chk[0].background);
     return chk[0].background;
   };
 

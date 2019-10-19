@@ -2,14 +2,14 @@ import React from 'react';
 import styled from 'styled-components';
 import { MdList, MdViewModule } from 'react-icons/md';
 
+//#region
 const OptionWrap = styled.div`
-  transition: ease-in backgournd 0.4s;
+  transition: ease-in background 0.4s;
   margin-bottom: 1.5rem;
   display: flex;
   > div {
-    flex: 1;
+    justify-content: space-between;
     align-items: center;
-    width: 50%;
     height: 20px;
   }
   &:after {
@@ -52,36 +52,42 @@ const Colors = styled.label`
     margin-left: 10px;
   }
 `;
+//#endregion
 
 const TodoOption = ({ colors, onColorChecked }) => {
   return (
     <OptionWrap>
       <LayoutBtn>
-        <input type="radio" name="btn-layout" id="radio-list" checked />
-        <label for="radio-list">
+        <input
+          type="radio"
+          name="btn-layout"
+          id="radio-list"
+          value="list"
+          defaultChecked
+        />
+        <label htmlFor="radio-list">
           <MdList />
         </label>
-        <input type="radio" name="btn-layout" id="radio-card" />
-        <label for="radio-card">
+        <input type="radio" name="btn-layout" id="radio-card" value="card" />
+        <label htmlFor="radio-card">
           <MdViewModule />
         </label>
       </LayoutBtn>
       <BackgroundColorBtn>
         {colors.map(color => (
-          <>
+          <React.Fragment key={color.num}>
             <input
               type="radio"
               name="bg"
               id={color.id}
-              checked={color.checked}
+              defaultChecked={color.checked}
               onClick={() => onColorChecked(color.num)}
             />
             <Colors
-              for={color.id}
+              htmlFor={color.id}
               style={{ background: color.background }}
-              key={color.num}
             />
-          </>
+          </React.Fragment>
         ))}
       </BackgroundColorBtn>
     </OptionWrap>

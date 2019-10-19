@@ -44,6 +44,10 @@ const App = () => {
       checked: false,
     },
   ]);
+  //배경색 선택된 값 체크
+  const [colorCheck, setColorCheck] = useState('');
+  //레이아웃 옵션이 선택된 값 체크
+  const [layoutCheck, setLayoutCheck] = useState('');
 
   const onColorChecked = useCallback(
     num => {
@@ -91,9 +95,9 @@ const App = () => {
   );
 
   return (
-    <TodoTemplate colors={colors}>
+    <TodoTemplate colors={colors} setColorCheck={setColorCheck}>
       <TodoOption colors={colors} onColorChecked={onColorChecked} />
-      <TodoInput onInsert={onInsert} />
+      <TodoInput onInsert={onInsert} colorCheck={colorCheck} />
       <TodoList todos={todos} onRemove={onRemove} onToggle={onToggle} />
     </TodoTemplate>
   );
