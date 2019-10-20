@@ -7,14 +7,15 @@ import {
 } from 'react-icons/md';
 
 const Todolistitem = styled.div`
-  display: flex;
   box-sizing: border-box;
   background: #fff;
   border-radius: 10px;
   min-height: 43px;
   margin-top: 20px;
   padding: 5px;
-
+  .masonry {
+    display: flex;
+  }
   .checkBox {
     align-items: center;
     display: flex;
@@ -29,6 +30,9 @@ const Todolistitem = styled.div`
       }
     }
     p {
+      word-wrap: break-word;
+      word-break: break-all;
+      cursor: pointer;
       flex: 1;
       margin-left: 0.5rem;
       font-size: 0.8rem;
@@ -47,27 +51,7 @@ const Todolistitem = styled.div`
         }
       }
     `}
-  ${props =>
-    props.layoutCheck === 'card'
-      ? `
-        transition: ease-in-out 0.2s;
-        width: 240px;
-        min-height:80px;
-        &:nth-of-type(2n) {
-          margin-left: 20px;
-        }
-        .remove, .checkBox svg {
-          align-self:flex-start !important;
-        }
-        .checkBox p {
-          padding:0.8rem 0.5rem 0.5rem 0;
-          text-align:center;
-          align-self:flex-start !important;
-        }
-      `
-      : `
-        transition: ease-in-out 0.2s;
-      `}
+
   .remove {
     display: flex;
     font-size: 1.25rem;
@@ -78,18 +62,39 @@ const Todolistitem = styled.div`
       color: tomato;
     }
   }
+  ${props =>
+    props.layoutCheck === 'card'
+      ? `
+      display:inline-block;
+      .masonry {
+        display:flex;
+        width:230px;
+        .remove, .checkBox svg {
+          align-self:flex-start;
+        }
+        .checkBox p {
+          padding:0.8rem 0.5rem 0.5rem 0;
+          text-align:center;
+          align-self:flex-start;
+        }
+      }
+      `
+      : `
+      `}
 `;
 
 const TodoListItem = ({ todo, onRemove, onToggle, layoutCheck }) => {
   const { num, text, checked } = todo;
   return (
     <Todolistitem checked={checked} layoutCheck={layoutCheck}>
-      <div className="checkBox" onClick={() => onToggle(num)}>
-        {checked ? <MdCheckBox /> : <MdCheckBoxOutlineBlank />}
-        <p>{text}</p>
-      </div>
-      <div className="remove" onClick={() => onRemove(num)}>
-        <MdIndeterminateCheckBox />
+      <div className="masonry">
+        <div className="checkBox" onClick={() => onToggle(num)}>
+          {checked ? <MdCheckBox /> : <MdCheckBoxOutlineBlank />}
+          <p>{text}</p>
+        </div>
+        <div className="remove" onClick={() => onRemove(num)}>
+          <MdIndeterminateCheckBox />
+        </div>
       </div>
     </Todolistitem>
   );

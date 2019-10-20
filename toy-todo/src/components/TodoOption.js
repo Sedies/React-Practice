@@ -1,6 +1,6 @@
-import React, { useCallback } from 'react';
+import React from 'react';
 import styled from 'styled-components';
-import { MdList, MdViewModule, MdFlashOff } from 'react-icons/md';
+import { MdLineWeight, MdDashboard } from 'react-icons/md';
 
 //#region
 const OptionWrap = styled.div`
@@ -16,7 +16,7 @@ const OptionWrap = styled.div`
     display: block;
     clear: both;
   }
-  & input {
+  input {
     display: none;
   }
 `;
@@ -25,14 +25,17 @@ const LayoutBtn = styled.div`
   > label {
     svg {
       font-size: 1.5rem;
-      color: #ebe9e9;
+      color: rgba(255, 255, 255, 0.6);
     }
   }
   > label:hover {
     cursor: pointer;
     svg {
-      color: #fff;
+      color: rgba(255, 255, 255, 1);
     }
+  }
+  > label ~ label {
+    margin-left: 5px;
   }
   ${props =>
     props.layoutCheck === 'card'
@@ -58,10 +61,10 @@ const Colors = styled.label`
   display: inline-block;
   width: 15px;
   height: 15px;
-  border: 1px solid #ebe9e9;
+  border: 1px solid rgba(255, 255, 255, 0.7);
   cursor: pointer;
   &:hover {
-    border-color: #fff;
+    border-color: rgba(255, 255, 255, 1);
   }
   & ~ & {
     margin-left: 10px;
@@ -88,8 +91,8 @@ const TodoOption = ({
           onClick={e => onLayoutChecked(e)}
           defaultChecked
         />
-        <label htmlFor="radio-list">
-          <MdList />
+        <label htmlFor="radio-list" title="라인형">
+          <MdLineWeight />
         </label>
         <input
           type="radio"
@@ -98,8 +101,8 @@ const TodoOption = ({
           value="card"
           onClick={e => onLayoutChecked(e)}
         />
-        <label htmlFor="radio-card">
-          <MdViewModule />
+        <label htmlFor="radio-card" title="카드형">
+          <MdDashboard />
         </label>
       </LayoutBtn>
       <BackgroundColorBtn>

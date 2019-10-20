@@ -3,12 +3,10 @@ import styled, { css } from 'styled-components';
 import TodoListItem from './TodoListItem';
 
 const Todolist = styled.div`
-  transition: ease-in 0.3s;
   ${props =>
     props.layoutCheck === 'card'
       ? css`
-          display: flex;
-          flex-wrap: wrap;
+          column-count: 2;
         `
       : ``};
 `;
