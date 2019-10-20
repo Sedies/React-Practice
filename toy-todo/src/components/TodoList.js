@@ -1,18 +1,28 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import TodoListItem from './TodoListItem';
 
-const Todolist = styled.div``;
+const Todolist = styled.div`
+  transition: ease-in 0.3s;
+  ${props =>
+    props.layoutCheck === 'card'
+      ? css`
+          display: flex;
+          flex-wrap: wrap;
+        `
+      : ``};
+`;
 
-const TodoList = ({ todos, onRemove, onToggle }) => {
+const TodoList = ({ todos, onRemove, onToggle, layoutCheck }) => {
   return (
-    <Todolist>
+    <Todolist layoutCheck={layoutCheck}>
       {todos.map(todo => (
         <TodoListItem
           todo={todo}
           key={todo.num}
           onRemove={onRemove}
           onToggle={onToggle}
+          layoutCheck={layoutCheck}
         />
       ))}
     </Todolist>

@@ -96,9 +96,19 @@ const App = () => {
 
   return (
     <TodoTemplate colors={colors} setColorCheck={setColorCheck}>
-      <TodoOption colors={colors} onColorChecked={onColorChecked} />
+      <TodoOption
+        colors={colors}
+        onColorChecked={onColorChecked}
+        setLayoutCheck={setLayoutCheck}
+        layoutCheck={layoutCheck}
+      />
       <TodoInput onInsert={onInsert} colorCheck={colorCheck} />
-      <TodoList todos={todos} onRemove={onRemove} onToggle={onToggle} />
+      <TodoList
+        todos={todos}
+        onRemove={onRemove}
+        onToggle={onToggle}
+        layoutCheck={layoutCheck}
+      />
     </TodoTemplate>
   );
 };

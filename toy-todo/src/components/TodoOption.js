@@ -1,10 +1,9 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import styled from 'styled-components';
-import { MdList, MdViewModule } from 'react-icons/md';
+import { MdList, MdViewModule, MdFlashOff } from 'react-icons/md';
 
 //#region
 const OptionWrap = styled.div`
-  transition: ease-in background 0.4s;
   margin-bottom: 1.5rem;
   display: flex;
   > div {
@@ -35,6 +34,22 @@ const LayoutBtn = styled.div`
       color: #fff;
     }
   }
+  ${props =>
+    props.layoutCheck === 'card'
+      ? `
+    #radio-card + label {
+      svg {
+        color:#fff;
+      }
+    }
+  `
+      : `
+    #radio-list + label {
+      svg {
+        color:#fff;
+      }
+    }
+    `}
 `;
 const BackgroundColorBtn = styled.div`
   margin-left: auto;
@@ -54,21 +69,35 @@ const Colors = styled.label`
 `;
 //#endregion
 
-const TodoOption = ({ colors, onColorChecked }) => {
+const TodoOption = ({
+  colors,
+  onColorChecked,
+  setLayoutCheck,
+  layoutCheck,
+}) => {
+  const onLayoutChecked = e => setLayoutCheck(e.target.value);
+
   return (
     <OptionWrap>
-      <LayoutBtn>
+      <LayoutBtn layoutCheck={layoutCheck}>
         <input
           type="radio"
           name="btn-layout"
           id="radio-list"
           value="list"
+          onClick={e => onLayoutChecked(e)}
           defaultChecked
         />
         <label htmlFor="radio-list">
           <MdList />
         </label>
-        <input type="radio" name="btn-layout" id="radio-card" value="card" />
+        <input
+          type="radio"
+          name="btn-layout"
+          id="radio-card"
+          value="card"
+          onClick={e => onLayoutChecked(e)}
+        />
         <label htmlFor="radio-card">
           <MdViewModule />
         </label>
