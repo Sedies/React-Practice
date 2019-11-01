@@ -1,22 +1,23 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import TodoTemplate from './components/TodoTemplate';
 import TodoInput from './components/TodoInput';
 import TodoOption from './components/TodoOption';
 import TodoList from './components/TodoList';
 
 const App = () => {
-  const [todos, setTodos] = useState([
-    {
-      num: 1,
-      text: '할 일',
-      checked: false,
-    },
-    {
-      num: 2,
-      text: '옵션도 추가해서 해보자',
-      checked: false,
-    },
-  ]);
+  const [todos, setTodos] = useState([]);
+
+  useEffect(() => {
+    const loaded = localStorage.getItem('Todos');
+    if(loaded !== null) {
+      const parseTodos = JSON.parse(loaded);
+      setTodos(parseTodos)
+    }
+  }, [])
+
+  useEffect(()=>{
+    localStorage.setItem('Todos', JSON.stringify(todos))
+  }, [todos])
 
   const [colors, setColors] = useState([
     {
