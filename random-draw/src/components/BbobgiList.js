@@ -38,7 +38,7 @@ const ListWrap = styled.div`
 `;
 const List = styled.ul`
   display: inline-block;
-  width: 353px;
+  width: 393px;
   min-height: 200px;
   margin: 72px 106px;
   padding: 0 20px;
