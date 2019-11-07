@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/React-Practice/random-draw/static/css/main.df182c7b.chunk.css",
+    "main.js": "/React-Practice/random-draw/static/js/main.9b649192.chunk.js",
+    "main.js.map": "/React-Practice/random-draw/static/js/main.9b649192.chunk.js.map",
+    "runtime-main.js": "/React-Practice/random-draw/static/js/runtime-main.3013c462.js",
+    "runtime-main.js.map": "/React-Practice/random-draw/static/js/runtime-main.3013c462.js.map",
+    "static/js/2.566ba6c7.chunk.js": "/React-Practice/random-draw/static/js/2.566ba6c7.chunk.js",
+    "static/js/2.566ba6c7.chunk.js.map": "/React-Practice/random-draw/static/js/2.566ba6c7.chunk.js.map",
+    "index.html": "/React-Practice/random-draw/index.html",
+    "precache-manifest.26255c2e31095b1b478a38da40aebade.js": "/React-Practice/random-draw/precache-manifest.26255c2e31095b1b478a38da40aebade.js",
+    "service-worker.js": "/React-Practice/random-draw/service-worker.js",
+    "static/css/main.df182c7b.chunk.css.map": "/React-Practice/random-draw/static/css/main.df182c7b.chunk.css.map",
+    "static/media/reset.css": "/React-Practice/random-draw/static/media/Nanum MasIssNeunCe.5aa7d3ea.ttf",
+    "static/media/draw.png": "/React-Practice/random-draw/static/media/draw.b8e06292.png",
+    "static/media/lever.png": "/React-Practice/random-draw/static/media/lever.2379889e.png",
+    "static/media/ul-bottom.png": "/React-Practice/random-draw/static/media/ul-bottom.03f2d853.png",
+    "static/media/ul-top.png": "/React-Practice/random-draw/static/media/ul-top.d3d63c40.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.3013c462.js",
+    "static/js/2.566ba6c7.chunk.js",
+    "static/css/main.df182c7b.chunk.css",
+    "static/js/main.9b649192.chunk.js"
+  ]
+}
