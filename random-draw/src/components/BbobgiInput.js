@@ -17,7 +17,7 @@ const InputTemplate = styled.form`
   }
 
   input::placeholder {
-    font-size:1.3rem;
+    font-size: 1.3rem;
     text-align: center;
   }
 `;

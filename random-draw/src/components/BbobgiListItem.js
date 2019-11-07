@@ -11,6 +11,10 @@ const ListItemWrap = styled.li`
   & + & {
     margin-left: 10px;
   }
+  span {
+    display: inline-block;
+    word-break: break-all;
+  }
 `;
 const Delete = styled.span`
   position: absolute;

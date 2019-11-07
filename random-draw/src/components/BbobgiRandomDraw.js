@@ -2,31 +2,33 @@ import React from "react";
 import styled from "styled-components";
 import imgDrawBox from "../Assets/img/draw.png";
 import imgLever from "../Assets/img/lever.png";
-import imgArrow from '../Assets/img/arrow.png';
+import imgArrow from "../Assets/img/arrow.png";
 
 const DrawBox = styled.div`
-  position:relative;
+  position: relative;
   background: url(${imgDrawBox}) no-repeat;
   background-size: contain;
   height: 224px;
   margin: -1px 98px;
   text-align: center;
+
   @keyframes blink {
-    0%{
-      opacity:0;
+    0% {
+      opacity: 0;
     }
-    30%{
-      opacity:1;
-      color:hotpink;
+    30% {
+      opacity: 1;
+      color: hotpink;
     }
-    60%{
-      opacity:0;
+    60% {
+      opacity: 0;
     }
-    100%{
-      opacity:1;
-      color:rgba(1, 42, 203);
+    100% {
+      opacity: 1;
+      color: rgba(1, 42, 203);
     }
   }
+
   .lever {
     display: inline-block;
     width: 88px;
@@ -40,20 +42,20 @@ const DrawBox = styled.div`
       transform: rotate(180deg);
     }
   }
-  .blinkInfo{
-    position:absolute;
-    top:15px;
-    right:68px;
-    animation: blink .4s infinite linear alternate;
-    &:after{
-      content:'';
-      display:block;
-      width:25px;
-      height:25px;
-      position:absolute;
-      top:5px;
-      left:-14px;
-      background:url(${imgArrow}) 0 0 no-repeat;
+  .blinkInfo {
+    position: absolute;
+    top: 15px;
+    right: 68px;
+    animation: blink 0.4s infinite linear alternate;
+    &:after {
+      content: "";
+      display: block;
+      width: 25px;
+      height: 25px;
+      position: absolute;
+      top: 5px;
+      left: -14px;
+      background: url(${imgArrow}) 0 0 no-repeat;
     }
   }
   .RandomResult {
@@ -76,7 +78,13 @@ const BbobgiRandomDraw = ({ draw, bbobgis, onRandomDraw }) => {
       <div className="lever" onClick={() => onRandomDraw(bbobgis)}>
         레버
       </div>
-      <span className='blinkInfo'>뽑기를<br />돌려주세요!</span>
+      {bbobgis.length > 0 && (
+        <span className="blinkInfo">
+          뽑기를
+          <br />
+          돌려주세요!
+        </span>
+      )}
       <div className="RandomResult">{draw !== "" && <span>{draw}</span>}</div>
     </DrawBox>
   );

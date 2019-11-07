@@ -6,6 +6,8 @@ import imgUlBottom from "../Assets/img/ul-bottom.png";
 import imgUlLine from "../Assets/img/ul-line.png";
 
 const ListWrap = styled.div`
+  box-sizing: border-box;
+  min-height: 393px;
   padding-bottom: 10px;
   position: relative;
   z-index: 0;
@@ -69,6 +71,7 @@ const List = styled.ul`
   }
 `;
 const ResetButton = styled.button`
+  margin-top: 5px;
   padding: 5px 15px;
   border: 0 none;
   border-radius: 30px;
@@ -77,7 +80,7 @@ const ResetButton = styled.button`
   cursor: pointer;
   transition: all 0.3s;
   box-shadow: 0 3px 0 gray;
-  font-size:1.3rem;
+  font-size: 1.3rem;
   &:hover {
     background: rgba(1, 42, 203, 0.8);
     box-shadow: none;
@@ -92,7 +95,9 @@ const BbobgiList = ({ bbobgis, onRemove, onReset }) => {
           <BbobgiListItem bbobgi={bbobgi} key={bbobgi.id} onRemove={onRemove} />
         ))}
       </List>
-      <ResetButton onClick={onReset}>모두 지우기</ResetButton>
+      {bbobgis.length > 0 && (
+        <ResetButton onClick={onReset}>모두 지우기</ResetButton>
+      )}
     </ListWrap>
   );
 };

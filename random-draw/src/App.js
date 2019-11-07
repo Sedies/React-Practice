@@ -3,7 +3,7 @@ import BbobgiTemplate from "./components/BbobgiTemplate";
 import BbobgiInput from "./components/BbobgiInput";
 import BbobgiList from "./components/BbobgiList";
 import BbobgiRandomDraw from "./components/BbobgiRandomDraw";
-import './Assets/css/reset.css';
+import "./Assets/css/reset.css";
 
 function App() {
   const [bbobgis, setBbobgis] = useState([]);
@@ -27,21 +27,24 @@ function App() {
     setBbobgis([]);
     setDraw("");
   }, []);
-  
+
   const inputRef = React.createRef();
-  const onRandomDraw = useCallback(bbobgis => {
-    if (bbobgis.length > 0) {
-      const index = Math.floor(Math.random() * bbobgis.length);
-      setDraw(bbobgis[index].text);
-    } else {
-      alert("메뉴를 적어주세요");
-      inputRef.current.focus();
-    }
-  }, [inputRef]);
+  const onRandomDraw = useCallback(
+    bbobgis => {
+      if (bbobgis.length > 0) {
+        const index = Math.floor(Math.random() * bbobgis.length);
+        setDraw(bbobgis[index].text);
+      } else {
+        alert("메뉴를 적어주세요");
+        inputRef.current.focus();
+      }
+    },
+    [inputRef]
+  );
 
   return (
     <BbobgiTemplate>
-      <BbobgiInput onInsert={onInsert} inputRef={inputRef}/>
+      <BbobgiInput onInsert={onInsert} inputRef={inputRef} />
       <BbobgiList bbobgis={bbobgis} onRemove={onRemove} onReset={onReset} />
       <BbobgiRandomDraw
         bbobgis={bbobgis}
