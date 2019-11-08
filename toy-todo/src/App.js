@@ -8,7 +8,7 @@ const App = () => {
   const [todos, setTodos] = useState([]);
 
   useEffect(() => {
-    const loaded = localStorage.getItem('Todos');
+    const loaded = localStorage.getItem('Todo');
     if(loaded !== null) {
       const parseTodos = JSON.parse(loaded);
       setTodos(parseTodos)
@@ -16,7 +16,7 @@ const App = () => {
   }, [])
 
   useEffect(()=>{
-    localStorage.setItem('Todos', JSON.stringify(todos))
+    localStorage.setItem('Todo', JSON.stringify(todos))
   }, [todos])
 
   const [colors, setColors] = useState([
