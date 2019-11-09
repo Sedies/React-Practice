@@ -19,7 +19,7 @@ const sampleArticle = {
   title: '제목',
   description: '내용',
   url: 'https://google.com',
-  urlToImage: 'https://wia.placeholder.com/160',
+  urlToImage: 'https://via.placeholder.com/160',
 }
 
 const NewsList = () => {
