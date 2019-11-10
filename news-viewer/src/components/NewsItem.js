@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-
+//#region
 const NewsItemBlock = styled.div`
   display: flex;
   .thumbnail {
@@ -30,7 +30,7 @@ const NewsItemBlock = styled.div`
     margin-top: 3rem;
   }
 `;
-
+//#endregion
 const NewsItem = ({ article }) => {
   const { title, description, url, urlToImage } = article;
   return (
