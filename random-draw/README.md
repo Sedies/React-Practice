@@ -1,4 +1,4 @@
-# [오늘은 뭐 먹지?](https://becover.github.io/React-Practice/)
+# [오늘은 뭐 먹지?(Click!!)](https://becover.github.io/React-Practice/)
 
 함수컴포넌트에 hooks를 사용하여 DOM조작 및 사용자의 input 데이터들을 받아 메뉴를 랜덤하게 출력하는 점심뽑기를 만들어 보았습니다.
 
@@ -8,7 +8,7 @@
   - 메뉴가 없이 레버를 돌리면 알림창 및 메뉴 input창 focusing
   - 메뉴 후보가 1개이상시 레버돌리는 안내문구 show
 
-![sample](https://github.com/becover/React-Practice/tree/master/random-draw/src/Assets/img/sample.png)
+![sample](https://github.com/becover/React-Practice/blob/master/random-draw/src/Assets/img/sample.png?raw=true)
 
 
 - 추후 추가할 기능
